@@ -62,7 +62,7 @@ app.get('/rsvp', function(req, res){
 app.post('/rsvp', function(req, res){
     var rsvpBody  = req.body;
     saveOne([rsvpBody.name, rsvpBody.status]).then((results)=>{
-        console.log('resutls > ' + results);
+        console.log('results > ' + results);
         results.values =  rsvpBody;
         res.status(200).json(results);
     }).catch((error)=>{

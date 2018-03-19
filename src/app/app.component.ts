@@ -35,8 +35,13 @@ export class AppComponent  implements OnDestroy{
     
     this.rsvpService.saveRsvp(this.model)
     .subscribe(result => {
-      console.log(result);
-        this.attendeesResult.push(this.model);
+        console.log(JSON.stringify(result));
+        // result.values
+        var returnObjStr  = JSON.stringify(result);
+        var returnObj  = JSON.parse(returnObjStr);
+        returnObj.values.id = returnObj.insertId
+        this.attendeesResult.push(returnObj.values);
+        // reset model to prevent two way binding for the fields
         this.model = new Attendees('', '1');
     });
   }

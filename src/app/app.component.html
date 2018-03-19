@@ -45,7 +45,7 @@
   
   <div class="row">
     <div *ngFor="let person of attendeesResult ">
-      {{person.name}} - {{person.status}}
+        {{person | json}} - {{person.name}} - {{person.status}}
     </div>
   </div>
 </div>
